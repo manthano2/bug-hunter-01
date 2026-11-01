@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bug Hunter — Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div id="navbarMount"></div>
+
+    <main class="auth-screen">
+      <div class="glass auth-card">
+        <div class="logo-mark">BUG<span>_</span>HUNTER</div>
+        <div class="logo-sub">Register a new agent profile</div>
+
+        <div class="auth-error" id="registerError" role="alert"></div>
+        <div class="auth-success" id="registerSuccess" role="status"></div>
+
+        <form id="registerForm" autocomplete="off" novalidate>
+          <div class="field">
+            <label for="regUsername">Username</label>
+            <input type="text" id="regUsername" placeholder="agent_codename" maxlength="16" autocomplete="username">
+          </div>
+          <div class="field">
+            <label for="regPassword">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="regPassword" placeholder="at least 4 characters" autocomplete="new-password">
+              <button type="button" class="pw-toggle" data-target="regPassword">SHOW</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="regConfirm">Confirm Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="regConfirm" placeholder="repeat password" autocomplete="new-password">
+              <button type="button" class="pw-toggle" data-target="regConfirm">SHOW</button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="registerSubmit">Register</button>
+        </form>
+
+        <div class="auth-or">or</div>
+        <a href="login.html" class="btn btn-secondary btn-block" style="margin-top:10px;">Back to Login</a>
+
+        <div class="auth-links">Already an agent? <a href="login.html">Log in</a></div>
+      </div>
+    </main>
+
+    <div id="footerMount"></div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="levels.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    if(requireGuest()){
+      initBackground();
+      buildNavbar({ active: 'register' });
+      buildFooter();
+      initPasswordToggles();
+      initRegisterForm();
+    }
+  </script>
+</body>
+</html>

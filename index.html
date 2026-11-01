@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bug Hunter - a hacker-themed JavaScript debugging game with 20 levels.">
+  <title>Bug Hunter — Become the Ultimate Bug Hunter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Terminal-style loading screen (shown once per browser session, click to skip) -->
+  <div id="bootScreen">
+    <div class="boot-box">
+      <div id="bootLines"></div>
+      <span class="boot-cursor"></span>
+      <div class="boot-skip">click anywhere to skip</div>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <div id="navbarMount"></div>
+
+    <main>
+      <!-- HERO -->
+      <section class="container hero">
+        <div class="fade-in">
+          <p class="eyebrow">// cybersecurity-themed coding game</p>
+          <h1>Become the Ultimate<br><span class="text-green" id="heroType">Bug Hunter</span></h1>
+          <p class="lead">Every level hands you a broken JavaScript program. Read the clues, fix the bug, and climb from Script Kiddie to Master Hunter across 20 debugging missions.</p>
+          <div class="hero-actions">
+            <a href="register.html" class="btn btn-primary btn-lg" id="ctaPrimary">Start Hunting</a>
+            <a href="login.html" class="btn btn-secondary btn-lg" id="ctaSecondary">Login</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>20</strong><span>Levels</span></div>
+            <div><strong>5</strong><span>Badges</span></div>
+            <div><strong>100%</strong><span>Offline</span></div>
+          </div>
+        </div>
+
+        <div class="glass terminal fade-in" aria-hidden="true">
+          <div class="terminal-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span style="margin-left:8px;">level_01.js</span></div>
+          <div class="terminal-body">
+<div class="term-line" style="--i:0"><span class="tok-kw">let</span> name = <span class="tok-str">"John"</span></div>
+<div class="term-line" style="--i:1"><span class="tok-obj">console</span>.<span class="tok-fn">log</span>(names)</div>
+<div class="term-line term-err" style="--i:2">✖ ReferenceError: names is not defined</div>
+<div class="term-line term-dim" style="--i:3">// found it. one wrong letter...</div>
+<div class="term-line" style="--i:4"><span class="tok-obj">console</span>.<span class="tok-fn">log</span>(name)</div>
+<div class="term-line term-ok" style="--i:5">&gt; John</div>
+<div class="term-line term-ok" style="--i:6">✔ Mission Complete! +100 XP</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="container section">
+        <div class="section-head">
+          <p class="eyebrow">// features</p>
+          <h2>Built like a real coding platform</h2>
+          <p>Everything you need to practise debugging, right in your browser.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="glass feature-card"><div class="feature-icon">⌨️</div><h3>Live Code Editor</h3><p>Syntax highlighting, line numbers, auto-indent and a safe sandbox that runs your code instantly.</p></div>
+          <div class="glass feature-card"><div class="feature-icon">💡</div><h3>3 Hints Per Level</h3><p>Stuck? Reveal hints one at a time. Each costs 10 points, so use them wisely.</p></div>
+          <div class="glass feature-card"><div class="feature-icon">⚡</div><h3>XP, Ranks &amp; Badges</h3><p>Earn 100 XP per level, rank up, and unlock achievement badges as you progress.</p></div>
+          <div class="glass feature-card"><div class="feature-icon">🏆</div><h3>Leaderboard</h3><p>Compete with other agents registered in this browser and chase the top score.</p></div>
+          <div class="glass feature-card"><div class="feature-icon">🔓</div><h3>Unlock Missions</h3><p>Only Level 1 is open. Fix each bug to unlock the next challenge, all the way to the boss fight.</p></div>
+          <div class="glass feature-card"><div class="feature-icon">💾</div><h3>Saved Progress</h3><p>Your score, hints and completed levels are saved automatically. No server, no sign-up emails.</p></div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="container section">
+        <div class="section-head">
+          <p class="eyebrow">// how it works</p>
+          <h2>Three steps to a clean build</h2>
+        </div>
+        <div class="steps">
+          <div class="glass step"><h3>Read the mission</h3><p>Each level explains what the program should do and shows the exact output it must produce.</p></div>
+          <div class="glass step"><h3>Fix the bug</h3><p>Edit the broken code, press Run to test it, and read the console for clues.</p></div>
+          <div class="glass step"><h3>Submit &amp; level up</h3><p>Submit your fix. If it passes you earn XP, confetti, and the next level unlocks.</p></div>
+        </div>
+      </section>
+
+      <!-- ROADMAP -->
+      <section class="container section">
+        <div class="section-head">
+          <p class="eyebrow">// mission roadmap</p>
+          <h2>20 bugs. One hunter.</h2>
+          <p>From typos to a multi-bug boss fight.</p>
+        </div>
+        <div class="roadmap" id="roadmap"></div>
+      </section>
+
+      <section class="container">
+        <div class="glass cta-band">
+          <h2>Ready to squash some bugs?</h2>
+          <p>Create a free agent profile and start with Level 1.</p>
+          <a href="register.html" class="btn btn-primary btn-lg">Create Account</a>
+        </div>
+      </section>
+    </main>
+
+    <div id="footerMount"></div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="levels.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script>initLanding();</script>
+</body>
+</html>

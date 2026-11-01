@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bug Hunter — Mission</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div id="navbarMount"></div>
+
+    <main class="container game-wrap">
+      <div class="game-top fade-in">
+        <div class="game-top-left">
+          <a href="dashboard.html#levels" class="btn btn-ghost btn-sm">← All Levels</a>
+          <span class="lv-pill" id="lvPill">LEVEL 01 / 20</span>
+        </div>
+        <div class="score-pill" id="scorePill">SCORE: 0 XP</div>
+      </div>
+
+      <div class="game-grid fade-in">
+
+        <!-- LEFT: problem + hints -->
+        <div>
+          <section class="glass panel">
+            <p class="eyebrow" id="lvTopic">Topic</p>
+            <h2 class="level-title" id="lvTitle">Level title</h2>
+            <span class="diff diff-beginner" id="lvDiff">Beginner</span>
+
+            <h3 style="margin-top:20px;">📋 Problem Description</h3>
+            <p class="level-desc" id="lvDesc"></p>
+
+            <div class="label">Expected output</div>
+            <div class="expected-box" id="expectedBox"></div>
+          </section>
+
+          <section class="glass panel">
+            <h3>💡 Hints</h3>
+            <div class="hint-list" id="hintList"></div>
+            <button class="btn btn-secondary btn-sm" id="btnHint" type="button">Hint</button>
+          </section>
+        </div>
+
+        <!-- RIGHT: editor + console -->
+        <div>
+          <div class="editor-shell">
+            <div class="editor-titlebar">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="file" id="fileName">level_01.js</span>
+              <span class="shortcut">Ctrl + Enter = Run</span>
+            </div>
+            <div class="editor-body">
+              <pre class="gutter" id="gutter" aria-hidden="true">1</pre>
+              <div class="editor-inner">
+                <pre class="code-layer" id="codeHighlight" aria-hidden="true"></pre>
+                <textarea class="code-input" id="codeInput" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off" aria-label="Code editor"></textarea>
+              </div>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-secondary btn-sm" id="btnRun" type="button">▶ Run Code</button>
+              <button class="btn btn-primary btn-sm" id="btnSubmit" type="button">✔ Submit</button>
+              <button class="btn btn-ghost btn-sm" id="btnReset" type="button">↺ Reset Code</button>
+              <button class="btn btn-ghost btn-sm push" id="btnNext" type="button" disabled>Next Level →</button>
+            </div>
+          </div>
+
+          <div class="status-msg" id="statusMsg" role="status"></div>
+
+          <section class="glass panel" style="margin-top:20px;">
+            <div class="console-head">
+              <h3>🖥️ Console Output</h3>
+              <button class="btn btn-ghost btn-sm" id="btnClearConsole" type="button">Clear</button>
+            </div>
+            <div class="console-out" id="consoleOut"></div>
+          </section>
+        </div>
+
+      </div>
+    </main>
+
+    <div id="footerMount"></div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="levels.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script src="game.js"></script>
+  <script>initGame();</script>
+</body>
+</html>

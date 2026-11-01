@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bug Hunter — Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div id="navbarMount"></div>
+
+    <main class="auth-screen">
+      <div class="glass auth-card">
+        <div class="logo-mark">BUG<span>_</span>HUNTER</div>
+        <div class="logo-sub">Become the Ultimate Bug Hunter</div>
+
+        <div class="auth-error" id="loginError" role="alert"></div>
+
+        <form id="loginForm" autocomplete="off" novalidate>
+          <div class="field">
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" placeholder="agent_codename" maxlength="32" autocomplete="username">
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+              <button type="button" class="pw-toggle" data-target="loginPassword">SHOW</button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="loginSubmit">Login</button>
+        </form>
+
+        <div class="auth-or">or</div>
+        <a href="register.html" class="btn btn-secondary btn-block" style="margin-top:10px;">Register</a>
+
+        <div class="auth-links">New agent? <a href="register.html">Create an account</a></div>
+      </div>
+    </main>
+
+    <div id="footerMount"></div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="levels.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    if(requireGuest()){
+      initBackground();
+      buildNavbar({ active: 'login' });
+      buildFooter();
+      initPasswordToggles();
+      initLoginForm();
+    }
+  </script>
+</body>
+</html>

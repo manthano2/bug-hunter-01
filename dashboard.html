@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bug Hunter — Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div id="navbarMount"></div>
+
+    <main class="container">
+      <section class="dash-hero fade-in">
+        <p class="eyebrow">// mission control</p>
+        <div class="dash-hero-row">
+          <div>
+            <h1>Welcome,<br><span class="text-green" id="welcomeName">agent</span></h1>
+            <p class="text-muted">Track your progress, check your stats and jump back into a mission.</p>
+          </div>
+          <a href="game.html?level=1" class="btn btn-primary btn-lg" id="continueBtn">Start Level 1 →</a>
+        </div>
+      </section>
+
+      <section class="stat-grid fade-in">
+        <div class="glass stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-value" id="statProgress">0%</div>
+          <div class="stat-label">Progress</div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+        <div class="glass stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-value" id="statLevels">0 / 20</div>
+          <div class="stat-label">Levels Completed</div>
+        </div>
+        <div class="glass stat-card">
+          <div class="stat-icon">💡</div>
+          <div class="stat-value" id="statHints">0</div>
+          <div class="stat-label">Hints Used</div>
+        </div>
+        <div class="glass stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value" id="statScore">0</div>
+          <div class="stat-label">Total Score</div>
+        </div>
+      </section>
+
+      <section class="glass rank-card fade-in">
+        <div class="rank-top">
+          <div class="rank-name" id="rankName">Script Kiddie</div>
+          <div class="rank-meta" id="xpText">0 / 2000 XP</div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="xpFill"></div></div>
+        <div class="rank-foot"><span>XP bar</span><span id="rankNext"></span></div>
+      </section>
+
+      <div class="section-title" id="levels"><h2>🎮 Levels</h2></div>
+      <div class="level-grid" id="levelGrid"></div>
+
+      <div class="section-title"><h2>🏅 Achievements</h2></div>
+      <div class="badge-grid" id="badgeGrid"></div>
+    </main>
+
+    <div id="footerMount"></div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="levels.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script>initDashboard();</script>
+</body>
+</html>
